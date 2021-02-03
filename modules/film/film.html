@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>film</title>
+    <link rel="stylesheet" href="/task/modules/film/film.css">
+</head>
+<body>
+    <div class="container">
+        <a class="back-btn" href="/task/index.html"><img src="/task/img/backbutton.svg" alt=""></a>
+        <div class="film">
+            <div class="film__poster">
+                <img :src='`https://image.tmdb.org/t/p/original${currentFilm.poster_path}`' alt="">
+            </div>
+            <div class="film__information">
+                <div class="film__header">
+                    <div class="film__title">
+                        <h2>{{currentFilm.title}}</h2>
+                    </div>
+                    <div class="film__star" v-on:click='toChoseFilm(currentFilm, $event)'>
+                        <svg  width="60px"  viewBox="0 0 300 275" xmlns="http://www.w3.org/2000/svg"  version="1.1">
+                            <polygon  v-if='!currentFilm.chosen' fill="white" stroke="black" stroke-width="10" color="orange" points="150,25 179,111 269,111 197,165  223,251 150,200 77,251 103,165 31,111 121,111" />
+                            <polygon  v-else fill="yellow" stroke="black" stroke-width="10" color="orange" points="150,25 179,111 269,111 197,165  223,251 150,200 77,251 103,165 31,111 121,111" />
+                        </svg>
+                    </div>
+                </div>      
+                <ul class="film__data">
+                    <li class="film__realese">
+                        <p><span>Дата релиза:</span> {{currentFilm.release_date}}</p>
+                    </li>
+                    <hr>
+                    <li class="film__rate">
+                        <p><span>Средний рейтинг:</span> {{currentFilm.vote_average}}</p>
+                    </li>
+                    <hr>
+                    <li class="film__genres">
+                        <p><span>Жанр:</span> {{genres}}</p>
+                    </li>
+                    <hr>
+                    <li class="film__original-title">
+                        <p><span>Оригинальное название:</span> {{currentFilm.original_title}}</p>
+                    </li>
+                    <hr>
+                    <li class="film__overview">
+                        <p><span>Описание: </span> {{currentFilm.overview}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="films_similar">
+            <div class="films_similar__title">
+                <h2>Похожие</h2>
+            </div>
+            <div class="films_similar__container">
+                <div class="cards">
+					<div class="cards__container">
+						<div class='card' v-for='film in filmList'>
+							<div class="img-wrapper">
+								<a href="/task/modules/film/film.html" v-on:click='getFilmInfo(film)'>
+									<img :src='`https://image.tmdb.org/t/p/original${film.poster_path}`' width="250" alt="">
+									<div class="card__elements">
+										<div class="card__rate">{{film.vote_average}}</div>
+									</div>
+								</img>	
+								</a>
+								<div class="card__star" v-on:click='toChoseFilm(film, $event)'>
+									<svg  width="30px"  viewBox="0 0 300 275" xmlns="http://www.w3.org/2000/svg"  version="1.1">
+										<polygon  v-if='!film.chosen' fill="white" stroke="black" stroke-width="10" color="orange" points="150,25 179,111 269,111 197,165  223,251 150,200 77,251 103,165 31,111 121,111" />
+										<polygon  v-else fill="yellow" stroke="black" stroke-width="10" color="orange" points="150,25 179,111 269,111 197,165  223,251 150,200 77,251 103,165 31,111 121,111" />
+									</svg>
+								</div>
+							</div>				
+							<div class="card__title">
+								{{film.title}}
+							</div>
+						</div>
+						</list>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script defer type="text/javascript" src="/task/modules/film/film.js"></script>
+</body>
+</html>
