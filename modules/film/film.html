@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>film</title>
-    <link rel="stylesheet" href="/task/modules/film/film.css">
+    <link rel="stylesheet" href="modules/film/film.css">
 </head>
 <body>
     <div class="container">
-        <a class="back-btn" href="/task/index.html"><img src="/task/img/backbutton.svg" alt=""></a>
+        <a class="back-btn" href="index.html"><img src="img/backbutton.svg" alt=""></a>
         <div class="film">
             <div class="film__poster">
                 <img :src='`https://image.tmdb.org/t/p/original${currentFilm.poster_path}`' alt="">
@@ -57,7 +57,7 @@
 					<div class="cards__container">
 						<div class='card' v-for='film in filmList'>
 							<div class="img-wrapper">
-								<a href="/task/modules/film/film.html" v-on:click='getFilmInfo(film)'>
+								<a href="modules/film/film.html" v-on:click='getFilmInfo(film)'>
 									<img :src='`https://image.tmdb.org/t/p/original${film.poster_path}`' width="250" alt="">
 									<div class="card__elements">
 										<div class="card__rate">{{film.vote_average}}</div>
@@ -82,6 +82,6 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-	<script defer type="text/javascript" src="/task/modules/film/film.js"></script>
+	<script defer type="text/javascript" src="modules/film/film.js"></script>
 </body>
 </html>
