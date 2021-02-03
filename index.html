@@ -3,33 +3,33 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./modules/search_field/search-fild.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="modules/search_field/search-fild.css">
 	<title>Movie</title>
 </head>
 <body>
 	<section class="container">
 		<div class="header">
 			<div class="logo">
-				<img src="/img/movie-icon.png"  width="140" alt="">
+				<img src="img/movie-icon.png"  width="140" alt="">
 			</div>
 			<div class="header-menu">
 				<div class="elected-films">
-					<a href="/task/modules/chosen/chosen.html"><span>Избранные</span></a>
+					<a href="modules/chosen/chosen.html"><span>Избранные</span></a>
 				</div>
 				<div class="search">
 					<input type="text" placeholder="Фильмы и сериалы">
 					<div class="search-btn">
-						<img src="/task/img/search_img.svg"  width="40" height="40" alt="">
+						<img src="img/search_img.svg"  width="40" height="40" alt="">
 					</div>
 					<div class="search-window" id='search-window'>
 						<div class="cards cards_small" >
 							<div class="cards__container cards__container_small ">
 								<div class='card card_small' v-for='film in films'>
 									<div class="img-wrapper img-wrapper_small">
-										<a href="/task/modules/film/film.html" v-on:click='getFilmInfo(film)'>
+										<a href="modules/film/film.html" v-on:click='getFilmInfo(film)'>
 											<img v-if='film.poster_path != null' :src='`https://image.tmdb.org/t/p/original${film.poster_path}`'  width="250" alt="">
-											<img v-else src='/task/img/placeholder.jpg' width="250" alt="">
+											<img v-else src='./img/placeholder.jpg' width="250" alt="">
 										</img>	
 										</a>
 									</div>		
@@ -58,7 +58,7 @@
 					<div class="cards__container" id='popular-films'>
 						<div class='card' v-for='film in filmList'>
 							<div class="img-wrapper">
-								<a href="/task/modules/film/film.html" v-on:click='getFilmInfo(film, $event)'>
+								<a href="modules/film/film.html" v-on:click='getFilmInfo(film, $event)'>
 									<img :src='`https://image.tmdb.org/t/p/original${film.poster_path}`' width="250" alt="">
 									<div class="card__elements">
 										<div class="card__rate">{{film.vote_average}}</div>
@@ -85,15 +85,6 @@
 	</section>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<script defer type="text/javascript" src="js/main.js"></script>
-	<script defer type="text/javascript" src="/task/modules/search_field/search-fild.js"></script>
-	<script>
-		function scrollWin() {
-			window.scrollTo({
-				left: 1000, 
-				top: 1000,
-				behavior:"smooth"
-			});
-		}
-	</script>
+	<script defer type="text/javascript" src="modules/search_field/search-fild.js"></script>
 </body>
 </html>
