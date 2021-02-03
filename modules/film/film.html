@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>film</title>
-    <link rel="stylesheet" href="modules/film/film.css">
+    <link rel="stylesheet" href="film.css">
 </head>
 <body>
     <div class="container">
@@ -57,7 +57,7 @@
 					<div class="cards__container">
 						<div class='card' v-for='film in filmList'>
 							<div class="img-wrapper">
-								<a href="modules/film/film.html" v-on:click='getFilmInfo(film)'>
+								<a href="film.html" v-on:click='getFilmInfo(film)'>
 									<img :src='`https://image.tmdb.org/t/p/original${film.poster_path}`' width="250" alt="">
 									<div class="card__elements">
 										<div class="card__rate">{{film.vote_average}}</div>
@@ -82,6 +82,6 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-	<script defer type="text/javascript" src="modules/film/film.js"></script>
+	<script defer type="text/javascript" src="film.js"></script>
 </body>
 </html>
