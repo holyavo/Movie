@@ -19,8 +19,6 @@ searchButton.addEventListener('click', function(){
             loadSearchedFilms(searchField.value)
             
         }
-
-        
     })
    }
 })
