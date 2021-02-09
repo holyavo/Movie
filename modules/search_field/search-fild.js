@@ -35,13 +35,21 @@ async function loadSearchedFilms(str){
 
     let chosenFilms = JSON.parse(sessionStorage.getItem('chosenFilms'),reviver)
 
-    for(el of data.results.slice(0, 4)){
-        if(el.title && chosenFilms.has(el.title)){
-            el.chosen = chosenFilms.get(el.title).chosen
-        }else{
-            el.chosen = false
+    //Checking if film is chosen
+    if(chosenFilms != null){
+        for(el of data.results.slice(0, 4)){
+            if(el.title && chosenFilms.has(el.title) ){
+                el.chosen = chosenFilms.get(el.title).chosen
+            }else{
+                el.chosen = false
+            }
+        }
+    }else{
+        for(el of data.results.slice(0, 4)){
+               el.chosen = false 
         }
     }
+
     
     searchedFilm.$data.films = data.results.slice(0, 4)
 
