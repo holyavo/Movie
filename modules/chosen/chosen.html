@@ -16,7 +16,7 @@
 					<div class="cards__container">
 						<div class='card' v-for='film in filmList'>
 							<div class="img-wrapper">
-								<a href="/film/film.html" v-on:click='getFilmInfo(film)'>
+								<a href="../film/film.html" v-on:click='getFilmInfo(film)'>
 									<img :src='`https://image.tmdb.org/t/p/original${film.poster_path}`' width="250" alt="">
 									<div class="card__elements">
 										<div class="card__rate">{{film.vote_average}}</div>
