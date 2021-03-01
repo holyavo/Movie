@@ -4,8 +4,8 @@ let header = document.querySelector('.header')
 
 
 
-let searchSvg = 'http://127.0.0.1:5500/task/img/search_img.svg'
-let crossSvg = 'http://127.0.0.1:5500/task/img/cross.svg'
+let searchSvg = './img/search_img.svg'
+let crossSvg = './img/cross.svg'
 
 
 
